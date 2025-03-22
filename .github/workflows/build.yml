@@ -31,12 +31,12 @@ jobs:
         with:
           path: ~/.m2/repository/
           key: 3.1.1
-          run: |
-           git clone --branch pyamsoft-3.1.1 https://github.com/pyamsoft/ktor.git
-           cd ktor
-           ./gradlew publishKotlinMultiplatformPublicationToMavenLocal
-           ./gradlew publishJvmPublicationToMavenLocal
-           cd ..
+        run: |
+          git clone --branch pyamsoft-3.1.1 https://github.com/pyamsoft/ktor.git
+          cd ktor
+          ./gradlew publishKotlinMultiplatformPublicationToMavenLocal
+          ./gradlew publishJvmPublicationToMavenLocal
+          cd ..
           
   build:
     runs-on: ubuntu-latest
