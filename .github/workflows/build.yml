@@ -92,10 +92,16 @@ jobs:
       - name: List APK before uploading
         run: ls -R app/build/outputs/apk/fdroid/debug/
 
+      - name: Generate Release Tag
+        id: generate_tag
+        run: |
+          TAG_NAME="v$(date +'%Y%m%d%H%M')"
+          echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+
       - name: Upload debug APK as release asset
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref_name }}
+          tag_name: ${{ env.TAG_NAME }}
           files: app/build/outputs/apk/fdroid/debug/app-fdroid-debug.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
