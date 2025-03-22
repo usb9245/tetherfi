@@ -26,6 +26,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: build custom ktor
+        run: |
+          git clone https://github.com/pyamsoft/ktor.git
+          cd ktor
+          ./gradlew publishKotlinMultiplatformPublicationToMavenLocal
+          ./gradlew publishJvmPublicationToMavenLocal
+          cd ..
+
       - name: Build with Gradle
         run: ./gradlew build
 
