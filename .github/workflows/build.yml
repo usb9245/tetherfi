@@ -3,7 +3,7 @@ name: Build and Release TetherFi
 on:
   push:
     branches:
-      - main
+      - build
 
 jobs:
   build:
