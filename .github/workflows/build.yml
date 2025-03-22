@@ -25,27 +25,22 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
-  cache:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      #- name: build custom ktor
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      
+      - name: Cache custom ktor
+        uses: actions/cache@v3
         with:
           path: ~/.m2/repository/
           key: 3.1.1
-      - run: |
-          git clone --branch pyamsoft-3.1.1 https://github.com/pyamsoft/ktor.git
-          cd ktor
-          ./gradlew publishKotlinMultiplatformPublicationToMavenLocal
-          ./gradlew publishJvmPublicationToMavenLocal
-          cd ..
+          run: |
+           git clone --branch pyamsoft-3.1.1 https://github.com/pyamsoft/ktor.git
+           cd ktor
+           ./gradlew publishKotlinMultiplatformPublicationToMavenLocal
+           ./gradlew publishJvmPublicationToMavenLocal
+           cd ..
           
   build:
     runs-on: ubuntu-latest
-    needs: cache
+    needs: setup
     steps:
       - name: Build with Gradle
         run: ./gradlew assembleFdroidDebug
