@@ -29,4 +29,8 @@
   <string
     name="network_bands_modern_description"
   >Faster but not compatible with every device.</string>
+  <string name="network_bands_new_title">6GHz</string>
+  <string
+    name="network_bands_new_description"
+  >Faster but only compatible with supported device.</string>
 </resources>
