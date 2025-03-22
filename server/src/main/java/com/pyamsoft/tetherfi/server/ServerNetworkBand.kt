@@ -23,5 +23,6 @@ import androidx.compose.runtime.Stable
 @Immutable
 enum class ServerNetworkBand {
   LEGACY,
-  MODERN
+  MODERN,
+  NEW
 }
