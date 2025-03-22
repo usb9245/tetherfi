@@ -50,6 +50,7 @@ internal constructor(
   @RequiresApi(Build.VERSION_CODES.Q)
   private suspend fun getPreferredBand(): Int {
     return when (preferences.listenForNetworkBandChanges().first()) {
+      ServerNetworkBand.NEW -> WifiP2pConfig.GROUP_OWNER_BAND_6GHZ
       ServerNetworkBand.MODERN -> WifiP2pConfig.GROUP_OWNER_BAND_5GHZ
       ServerNetworkBand.LEGACY -> WifiP2pConfig.GROUP_OWNER_BAND_2GHZ
     }
