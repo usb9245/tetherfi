@@ -35,12 +35,18 @@ jobs:
           cd ..
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew assembleFdroidDebug
+
+      - name: check apk location
+        run: ls -R
 
   release:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: check apk location
+        run: ls -R
+    
       - name: Check out repository
         uses: actions/checkout@v2
 
