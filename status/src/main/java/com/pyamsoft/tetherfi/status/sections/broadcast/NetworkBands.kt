@@ -153,6 +153,7 @@ private fun SelectableNetworkBand(
         when (band) {
           ServerNetworkBand.LEGACY -> R.string.network_bands_legacy_title
           ServerNetworkBand.MODERN -> R.string.network_bands_modern_title
+          ServerNetworkBand.NEW -> R.string.network_bands_new_title
         }
       }
 
@@ -161,6 +162,7 @@ private fun SelectableNetworkBand(
         when (band) {
           ServerNetworkBand.LEGACY -> R.string.network_bands_legacy_description
           ServerNetworkBand.MODERN -> R.string.network_bands_modern_description
+          ServerNetworkBand.NEW -> R.string.network_bands_new_description
         }
       }
 
