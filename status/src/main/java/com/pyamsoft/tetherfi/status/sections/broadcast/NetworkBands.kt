@@ -108,7 +108,7 @@ internal fun NetworkBands(
       Text(
           modifier =
               Modifier.border(
-                      width = 2.dp,
+                      width = 3.dp,
                       color =
                           MaterialTheme.colorScheme.secondary.copy(
                               alpha = surfaceAlpha(isEditable),
